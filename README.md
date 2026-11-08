@@ -10,3 +10,10 @@ After that, you just have to use ```extern "c" U0 funcName();``` to access in in
 In this binding, all i did was take the raylib.h file, convert all data types to HolyC ones, add extern "c" before functions, and change enums to #define. Some things i was not able to convert to HolyC, like callable functions ( *TraceLogCallback for example ), and raylibs custom memory allocators ( like RL_MALLOC ). <br>
 
 Other things had to be changed, for example all the color macros at the top like #define RAYWHITE {245, 245, 245, 255} had to be changed to variables, as HolyC only allows #define to use numbers or strings. <br> <br>
+
+To use these bindings, place rcore.HC in your project folder and in your Main.HC have this line at the top to include it <br>
+```#include "/path/to/rcore.HC"``` <br>
+After that, when you compile with hcc, link it to the library like normal but have it in the -clibs=. <br>
+You'll be able to use raylib as you normally would with this.
+
+
